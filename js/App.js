@@ -72,3 +72,10 @@ hamburger.addEventListener("click", () => {
   hamburger.classList.toggle("active");
   modal.classList.toggle("active");
 });
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 768) {
+    hamburger.classList.remove("active");
+    modal.classList.remove("active");
+  }
+});
