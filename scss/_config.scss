@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap");
+
+$Cyan: hsl(180, 66%, 49%);
+$Light-Cyan: #9be3e2;
+$Dark-Violet: hsl(257, 27%, 26%);
+$Red: hsl(0, 87%, 67%);
+$Gray: hsl(0, 0%, 75%);
+$Grayish-Violet: hsl(257, 7%, 63%);
+$Very-Light-Blue: #f0f1f6;
+$Very-Dark-Blue: hsl(255, 11%, 22%);
+$Very-Dark-Violet: hsl(260, 8%, 14%);
+
+$radius: 0.625rem;
+
+%tr {
+  transition: 0.2s ease;
+}
+
+$laptop: 1024px;
+$tablet: 768px;
+$mobile-l: 520px;
+
+@mixin laptop {
+  @media screen and(max-width: $laptop) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media screen and(max-width: $tablet) {
+    @content;
+  }
+}
+@mixin mobile-l {
+  @media screen and(max-width: $mobile-l) {
+    @content;
+  }
+}

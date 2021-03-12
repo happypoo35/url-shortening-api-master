@@ -1,0 +1,442 @@
+@import "config";
+@import "typography";
+@import "global";
+@import "loading";
+@import "modal";
+
+header {
+  min-height: 800px;
+}
+
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 3rem;
+  margin-bottom: 8.5rem;
+
+  @include tablet {
+    padding-top: 2.5rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .logo {
+    margin-right: 2.75rem;
+  }
+
+  nav {
+    flex: 1;
+
+    @include tablet {
+      display: none;
+    }
+
+    & > * + * {
+      margin-left: 1.875rem;
+    }
+  }
+
+  .auth {
+    @include tablet {
+      display: none;
+    }
+
+    .btn {
+      margin-left: 2.375rem;
+    }
+  }
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 580px 1fr;
+  gap: 5rem;
+
+  @include tablet {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  &-text {
+    @include tablet {
+      text-align: center;
+      margin-bottom: 10.5rem;
+    }
+  }
+
+  &-img {
+    position: relative;
+
+    img {
+      position: absolute;
+      top: -4rem;
+
+      @include tablet {
+        position: unset;
+        max-width: 80vw;
+        min-width: 30rem;
+      }
+    }
+  }
+
+  h1 {
+    @include tablet {
+      margin-bottom: 0.625rem;
+    }
+  }
+
+  p {
+    margin-bottom: 2.375rem;
+
+    @include tablet {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+main {
+  flex: 1;
+  background: $Very-Light-Blue;
+}
+
+.shorten {
+  margin-bottom: 2.125rem;
+  transform: translateY(-5.25rem);
+
+  @include tablet {
+    margin-bottom: 1.5rem;
+    transform: translateY(-5rem);
+  }
+
+  &-form {
+    background: $Dark-Violet no-repeat center
+      url("../images/bg-shorten-desktop.svg");
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1.5rem;
+    padding: 3.25rem 4rem;
+    border-radius: $radius;
+    margin-bottom: 1.5rem;
+
+    @include tablet {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      padding: 1.5rem;
+      background: $Dark-Violet no-repeat top right
+        url("../images/bg-shorten-mobile.svg");
+    }
+
+    &.error {
+      input {
+        box-shadow: 0 0 0 3px $Red;
+
+        @include tablet {
+          margin-bottom: 0.25rem;
+        }
+
+        &::placeholder {
+          color: rgba($Red, 0.5);
+        }
+      }
+
+      label {
+        display: unset;
+      }
+    }
+  }
+
+  .input-container {
+    position: relative;
+  }
+
+  input {
+    width: 100%;
+    z-index: 1;
+  }
+
+  label {
+    position: absolute;
+    display: none;
+    left: 0;
+    top: 4.5rem;
+
+    @include tablet {
+      position: unset;
+    }
+  }
+
+  &-results {
+    display: grid;
+    gap: 1rem;
+  }
+}
+
+.result {
+  position: relative;
+  background: white;
+  border-radius: 0.375rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  transform: scale(0.5);
+  transition: 0.3s ease;
+
+  @include tablet {
+    flex-direction: column;
+    justify-content: unset;
+    align-items: unset;
+  }
+
+  &.active {
+    height: unset;
+    visibility: visible;
+    transform: scale(1);
+    padding: 1rem 1.5rem 1rem 2rem;
+
+    @include tablet {
+      padding: 1rem;
+    }
+  }
+
+  p {
+    flex: 1;
+
+    @include tablet {
+      margin-bottom: 1.625rem;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 3.25rem;
+        height: 1px;
+        width: 100%;
+        background: $Very-Light-Blue;
+      }
+    }
+  }
+
+  a {
+    margin: 0 1.5rem;
+
+    @include tablet {
+      margin: unset;
+      margin-bottom: 0.875rem;
+    }
+  }
+
+  .btn.square {
+    @include tablet {
+      width: 100%;
+    }
+  }
+
+  .copied {
+    background: $Dark-Violet;
+    color: white;
+  }
+}
+
+.features {
+  margin-bottom: 7.5rem;
+
+  @include tablet {
+    margin-bottom: 5rem;
+  }
+
+  &-text {
+    width: min(520px, 100%);
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 6.25rem;
+  }
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+
+  &-cards {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 2.75rem) 1fr repeat(2, 2.75rem);
+    column-gap: 1.875rem;
+
+    @include tablet {
+      grid-template-columns: unset;
+      grid-template-rows: unset;
+      row-gap: 5.75rem;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 9.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 0.5rem;
+      width: 90%;
+      background: $Cyan;
+
+      @include tablet {
+        top: unset;
+        height: 90%;
+        width: 0.5rem;
+      }
+    }
+  }
+}
+
+.card {
+  position: relative;
+  background: white;
+  padding: 4.875rem 2rem 2.625rem;
+  border-radius: $radius;
+
+  @include tablet {
+    text-align: center;
+  }
+
+  &:nth-child(1) {
+    grid-row: 1/4;
+
+    @include tablet {
+      grid-row: unset;
+    }
+  }
+  &:nth-child(2) {
+    grid-row: 2/5;
+
+    @include tablet {
+      grid-row: unset;
+    }
+  }
+  &:nth-child(3) {
+    grid-row: 3/6;
+
+    @include tablet {
+      grid-row: unset;
+    }
+  }
+
+  &-icon {
+    position: absolute;
+    top: 0;
+    height: 5.5rem;
+    width: 5.5rem;
+    border-radius: 50%;
+    background: $Dark-Violet;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-50%);
+
+    @include tablet {
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  h3 {
+    margin-bottom: 1.125rem;
+
+    @include tablet {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.cta {
+  background: $Dark-Violet no-repeat center/cover
+    url("../images/bg-boost-desktop.svg");
+
+  @include tablet {
+    background: $Dark-Violet no-repeat right/cover
+      url("../images/bg-boost-mobile.svg");
+  }
+
+  .container {
+    text-align: center;
+    padding: 3.5rem 0;
+
+    @include tablet {
+      padding: 6rem 0;
+    }
+  }
+
+  h2 {
+    margin-bottom: 1.5rem;
+
+    @include tablet {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+footer {
+  background: $Very-Dark-Violet;
+
+  .container {
+    padding: 4.5rem 0;
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 4.5rem;
+    align-items: flex-start;
+
+    @include laptop {
+      grid-template-columns: 1fr auto;
+      padding-bottom: 3.5rem;
+    }
+
+    @include tablet {
+      grid-template-columns: 1fr;
+      gap: 3.125rem;
+      place-items: center;
+      padding-top: 3.375rem;
+    }
+  }
+}
+
+.footer-nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5.5rem;
+
+  @include mobile-l {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2.5rem;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+
+    h4 {
+      margin-bottom: 1.5rem;
+    }
+
+    a:not(:last-child) {
+      margin-bottom: 0.75rem;
+    }
+  }
+}
+
+.socials {
+  width: fit-content;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 1.5rem;
+
+  @include laptop {
+    place-self: center;
+    grid-column: 1/3;
+  }
+
+  @include tablet {
+    grid-column: unset;
+  }
+}

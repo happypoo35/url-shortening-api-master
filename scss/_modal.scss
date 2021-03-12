@@ -1,0 +1,57 @@
+.menu-modal {
+  position: absolute;
+  top: 6rem;
+  width: 100%;
+  z-index: 2;
+  transform: translateX(100%);
+  display: none;
+  pointer-events: none;
+  @extend %tr;
+
+  @include tablet {
+    display: unset;
+    pointer-events: unset;
+  }
+
+  &.active {
+    transform: translateX(0);
+  }
+
+  .container {
+    padding: 2.5rem 1.5rem;
+    background: $Dark-Violet;
+    border-radius: $radius;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid #544a6d;
+    width: 100%;
+    margin-bottom: 2rem;
+
+    a {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .auth {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    a {
+      margin-bottom: 2rem;
+    }
+
+    .btn.small {
+      width: 100%;
+      font-size: 1.125rem;
+    }
+  }
+}

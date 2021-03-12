@@ -1,0 +1,180 @@
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+
+h1,
+h2,
+h3,
+h4,
+button,
+.link-header,
+.link-modal {
+  font-weight: 700;
+}
+
+h1,
+h2,
+h3,
+h4,
+input,
+.result-p {
+  color: $Very-Dark-Blue;
+}
+
+.white,
+button,
+h4,
+i,
+.link-modal {
+  color: white;
+}
+
+.logo-white * {
+  fill: white;
+}
+
+p,
+.link-header,
+input::placeholder {
+  color: $Grayish-Violet;
+}
+
+.link-header:hover {
+  color: $Very-Dark-Violet;
+}
+
+.link-footer {
+  letter-spacing: -0.02em;
+  color: $Gray;
+
+  &:hover {
+    color: $Cyan;
+  }
+}
+
+.link-shorten {
+  color: $Cyan;
+
+  &:hover {
+    color: $Light-Cyan;
+  }
+}
+
+.link,
+.card-p,
+.small,
+h4 {
+  font-size: 0.9375rem;
+}
+
+.square:not(.small),
+.link-modal {
+  @include tablet {
+    font-size: 1.125rem;
+  }
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+input,
+button,
+.result-p,
+.link-shorten {
+  font-size: 1.25rem;
+}
+
+.result-p,
+.link-shorten {
+  @include tablet {
+    font-size: 1rem;
+  }
+}
+
+input {
+  @include tablet {
+    font-size: 1rem;
+  }
+}
+
+h1 {
+  font-size: 4.875rem;
+  letter-spacing: -0.014em;
+  line-height: 1.15;
+
+  @include tablet {
+    font-size: 2.5rem;
+    letter-spacing: unset;
+  }
+}
+
+h2 {
+  font-size: 2.5rem;
+  letter-spacing: -0.026em;
+
+  @include tablet {
+    font-size: 1.75rem;
+  }
+}
+
+h3 {
+  font-size: 1.375rem;
+}
+
+h4 {
+  letter-spacing: 0.03em;
+}
+
+p {
+  font-size: 1.125rem;
+  line-height: 2rem;
+
+  @include tablet {
+    font-size: 1rem;
+    line-height: 1.75rem;
+  }
+
+  &.hero-p {
+    font-size: 1.375rem;
+    line-height: 2.25rem;
+
+    @include tablet {
+      font-size: 1.125rem;
+      line-height: 1.875rem;
+    }
+  }
+
+  &.card-p {
+    line-height: 1.625rem;
+    letter-spacing: -0.006em;
+  }
+
+  &.result-p {
+    line-height: unset;
+  }
+}
+
+i {
+  font-size: 1.5rem;
+
+  &:hover {
+    color: $Cyan;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+label {
+  font-size: 1rem;
+  font-style: italic;
+  color: $Red;
+
+  @include tablet {
+    font-size: 0.75rem;
+  }
+}

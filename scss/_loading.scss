@@ -1,0 +1,82 @@
+.loading {
+  position: fixed;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(white, 0.9);
+  display: none;
+
+  &.active {
+    display: flex;
+  }
+
+  h2 {
+    margin-bottom: 2rem;
+    color: $Dark-Violet;
+
+    @include tablet {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &-icon {
+    position: relative;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    background: $Dark-Violet;
+    animation: 0.75s fade 0.25s ease infinite;
+
+    @include tablet {
+      height: 0.75rem;
+      width: 0.75rem;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      height: 1rem;
+      width: 1rem;
+      border-radius: 50%;
+      background: $Dark-Violet;
+
+      @include tablet {
+        height: 0.75rem;
+        width: 0.75rem;
+      }
+    }
+
+    &::before {
+      left: -2rem;
+      animation: 0.75s fade ease infinite;
+
+      @include tablet {
+        left: -1.5rem;
+      }
+    }
+
+    &::after {
+      left: 2rem;
+      animation: 0.75s fade 0.5s ease infinite;
+
+      @include tablet {
+        left: 1.5rem;
+      }
+    }
+  }
+}
+
+@keyframes fade {
+  from {
+    background: $Dark-Violet;
+  }
+
+  to {
+    background: rgba($Dark-Violet, 0.2);
+  }
+}
